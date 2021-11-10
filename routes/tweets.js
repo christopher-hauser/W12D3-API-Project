@@ -1,13 +1,17 @@
 const express = require('express');
+const db = require("../db/models");
+const { Tweet } = db;
 
+const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", asyncHandler(async(req, res) => {
+  const tweets = Tweet.findAll();
     res.json({
-        message: "test tweets index"
+        tweets
     });
     res.send("Welcome to the express-sequelize-starter!");
-  });
+  }));
 
 
 module.exports = router;
