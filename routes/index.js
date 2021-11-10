@@ -6,7 +6,6 @@ router.get("/", (req, res) => {
     res.json({
         message: "test root index"
     });
-    res.send("Welcome to the express-sequelize-starter!");
   });
 
 
