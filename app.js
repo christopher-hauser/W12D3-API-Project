@@ -5,10 +5,7 @@ const app = express();
 
 const indexRouter = require('./routes/index');
 const tweetsRouter = require('./routes/tweets');
-const db = require("../db/models");
-const { Tweet } = db;
 
-const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 app.use(morgan("dev"));
 app.use(express.json());
